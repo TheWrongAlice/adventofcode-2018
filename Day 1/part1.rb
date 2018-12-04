@@ -30,12 +30,6 @@
 
 frequency = 0
 File.open('input.txt').each do |drift|
-  operand = drift[0, 1]
-  value = drift[1, drift.length].to_i
-  if operand == '+'
-    frequency += value
-  else
-    frequency -= value
-  end
+  frequency += drift.to_i
 end
 puts frequency

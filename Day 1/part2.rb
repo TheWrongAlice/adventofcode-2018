@@ -28,21 +28,12 @@ current_frequency = 0
 loop do
   File.open('input.txt').each do |drift|
     frequencies << current_frequency
-
-    operand = drift[0, 1]
-    value = drift[1, drift.length].to_i
-    if operand == '+'
-      current_frequency += value
-    else
-      current_frequency -= value
-    end
-
+    current_frequency += drift.to_i
     puts drift
     puts current_frequency
     if frequencies.include? current_frequency
       puts current_frequency
       exit
     end
-
   end
 end
